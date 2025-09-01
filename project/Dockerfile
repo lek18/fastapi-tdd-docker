@@ -1,5 +1,5 @@
 # pull official base image
-FROM python:3.11.2-slim-buster
+FROM python:3.11.13-bookworm
 
 # set working directory
 RUN mkdir -p /usr/src/app
@@ -13,7 +13,7 @@ ENV PYTHONDONTWRITEBYTECODE=1\
 
 # install system dependencies
 RUN apt-get update \
-  && apt-get -y install netcat gcc curl\
+  && apt-get -y install netcat-openbsd gcc curl\
   && apt-get clean
 
 # install poetry - respects $POETRY_VERSION & $POETRY_HOME
